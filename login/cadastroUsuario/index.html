@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container-geral">
+        <div class="img-lateral"></div>
+
+        <div class="form-container">
+            <div class="logo"></div>
+
+
+            <form class="form-cadastro" action="#" method="post">
+                <h2>Cadastro de Usuário</h2>
+                <input type="text" name="nome" placeholder="Nome" required>
+                <input type="text" name="cpf" placeholder="CPF" required>
+                <input type="text" name="email" placeholder="E-mail" required>
+                <div class="senha">
+                    <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                    <i class="fa-solid fa-eye funcaoSenha" id="funcaoSenha"></i>
+                </div>
+
+                <button type="button" onclick="window.location.href='../login/index.html'">Cadastrar</button>
+                <small><a href="../login/index.html">Já possuo cadastro</a></small>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const funcaoSenha = document.getElementById('funcaoSenha');
+        const senha = document.getElementById('senha');
+
+        funcaoSenha.addEventListener('click', () => {
+            const tipo = senha.getAttribute('type') === 'password' ? 'text' : 'password';
+            senha.setAttribute('type', tipo);
+
+            funcaoSenha.classList.toggle('fa-eye');
+            funcaoSenha.classList.toggle('fa-eye-slash');
+        });
+    </script>
+
+</body>
+
+</html>

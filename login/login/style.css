@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container-geral {
+    display: flex;
+    height: 100vh;
+}
+
+.img-lateral {
+    flex: 1;
+    background: url('/login/img/fundocadmsc.jfif') no-repeat center center;
+    background-size: cover;
+}
+
+.form-container {
+    flex: 1;
+    background: linear-gradient(135deg,#4b006e, #2f1043, #8a054c);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    color: #fff;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    width: 90px;
+    height: 90px;
+    background: url('/login/img/logo.png') no-repeat center;
+    background-size: contain;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-cadastro {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.form-cadastro input{
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-cadastro input::placeholder {
+    color: #b8b8b8;
+}
+
+button {
+    background: linear-gradient(90deg, #6401b0, #8b02d1);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #7c0fd6, #a130ff);
+}
+
+.senha {
+    position: relative;
+    width: 100%;
+}
+
+.senha input {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    padding: 15px 45px 15px 15px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+}
+
+.senha input::placeholder {
+    color: #b8b8b8;
+}
+
+.funcaoSenha {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #b8b8b8;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.funcaoSenha:hover {
+    color: #fff;
+}

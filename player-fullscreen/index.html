@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Every Breath You Take - The Police</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script defer>
+        function toggleHeart() {
+            const heart = document.getElementById('heart');
+            heart.classList.toggle('active');
+            heart.classList.remove('animate'); // reset para repetir animação
+            void heart.offsetWidth; // força reflow
+            heart.classList.add('animate');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="player-container">
+        <div class="background">
+            <img src="/player-fullscreen/img/back-thepolice.jpg" alt="The Police">
+        </div>
+        <a href="http://127.0.0.1:5500/home/index.html">
+            <button class="close-btn">✕</button>
+        </a>
+
+
+        <div class="content">
+            <div class="song-header">
+                <img src="/playlist/Soundwave/Imagens/Every Breath You Take.jpg" alt="Capa do Álbum"
+                    class="album-cover">
+                <div class="song-info">
+                    <h1>Every Breath You Take</h1>
+                    <p>The Police</p>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <span class="time">2:31</span>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <span class="time">3:18</span>
+
+                <!-- Heart acima da barra, canto direito -->
+                <button id="heart" class="heart-btn" onclick="toggleHeart()">♡</button>
+            </div>
+
+            <div class="player-buttons">
+                <button>
+                    <img src="/player-fullscreen/img/musica_voltar.png" alt="Voltar">
+                </button>
+                <button class="play">
+                    <img src="/player-fullscreen/img/musica_pause.png" alt="Play/Pause">
+                </button>
+                <button>
+                    <img src="/player-fullscreen/img/musica_avancar.png" alt="Avançar">
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

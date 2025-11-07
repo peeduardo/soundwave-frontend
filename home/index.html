@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soundwave - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="sidebar" id="sidebar">
+
+        <ul class="nav-list">
+            <li>
+                <a href="#" class="nav-item" id="toggle-menu">
+                    <img src="images/menu_menu.png" alt="Abrir Menu" class="nav-icon">
+                </a>
+            </li>
+        </ul>
+
+        <ul class="nav-list">
+            <li>
+                <a href="http://127.0.0.1:5500/login/cadastroUsuario/index.html" class="nav-item">
+                    <img src="images/menu_user.png" alt="Usuário" class="nav-icon">
+                    <span class="nav-text">Usuário</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://127.0.0.1:5500/home/index.html" class="nav-item active">
+                    <img src="images/menu_home.png" alt="Home" class="nav-icon">
+                    <span class="nav-text">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-item">
+                    <img src="images/menu_favoritar.png" alt="Músicas Curtidas" class="nav-icon">
+                    <span class="nav-text">Músicas Curtidas</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="recent-playlists">
+            <h5 class="nav-title">Playlists recentes</h5>
+            <ul class="nav-list playlist-items">
+                <li>
+                    <a href="#" class="nav-item">
+                        <img src="images/capa_rock.png" alt="As melhores 80s" class="nav-icon playlist-cover">
+                        <span class="nav-text">As melhores 80's</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item">
+                        <img src="images/capa_funk.png" alt="Playlist 2" class="nav-icon playlist-cover">
+                        <span class="nav-text">Playlist 2</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item">
+                        <img src="images/capa_mpb.png" alt="Playlist 3" class="nav-icon playlist-cover">
+                        <span class="nav-text">Playlist 3</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item">
+                        <img src="images/capa_pop.png" alt="Playlist 4" class="nav-icon playlist-cover">
+                        <span class="nav-text">Playlist 4</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="content">
+
+        <a href="#" class="logo-container">
+            <img src="images/logo_Soundwave.png" alt="Soundwave Logo" class="logo-sw">
+        </a>
+
+        <div class="search-bar">
+            <img src="images/buscar_lupa.png" alt="Buscar" class="search-icon">
+            <input type="text" placeholder="O que você quer ouvir ?">
+        </div>
+
+        <div id="playlist-grid">
+<!-- 
+            <a href="http://127.0.0.1:5500/playlist/Soundwave/index.html">
+                <div class="card">
+                    <img src="images/capa_funk.png" alt="Capa Funk">
+                    <div class="card-info">
+                        <h3>Funk</h3>
+                        <p>Soundwaves</p>
+                    </div>
+                </div>
+            </a>
+
+            <div class="card">
+                <img src="images/capa_forro.png" alt="Capa Forró">
+                <div class="card-info">
+                    <h3>Forró</h3>
+                    <p>Soundwaves</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/capa_rock.png" alt="Capa Rock">
+                <div class="card-info">
+                    <h3>Rock</h3>
+                    <p>Soundwaves</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/capa_mpb.png" alt="Capa MPB">
+                <div class="card-info">
+                    <h3>MPB</h3>
+                    <p>Soundwaves</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/capa_sertanejo.png" alt="Capa Sertanejo">
+                <div class="card-info">
+                    <h3>Sertanejo</h3>
+                    <p>Usuário</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/capa_pop.png" alt="Capa Pop">
+                <div class="card-info">
+                    <h3>Pop</h3>
+                    <p>Usuário</p>
+                </div>
+            </div> -->
+
+        </div>
+
+        <div class="launch-card">
+            <div class="launch-info">
+                <img src="images/artista_foto.png" alt="Djo" class="launch-artist-img">
+                <div class="launch-text">
+                    <p>Novo lançamento de</p>
+                    <h2>Djo</h2>
+                    <h3>End of Beginning</h3>
+                </div>
+            </div>
+            <img src="images/pause.png" alt="Pausar" class="launch-pause-icon">
+        </div>
+
+        <div class="playlist-grid">
+            <div class="card">
+                <img src="images/capa_reggaeton.png" alt="Capa Reggaeton">
+                <div class="card-info">
+                    <h3>Reggaeton</h3>
+                    <p>Usuário</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/capa_indie.png" alt="Capa Indies">
+                <div class="card-info">
+                    <h3>Indies</h3>
+                    <p>Usuário</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <aside class="right-sidebar">
+
+        <div class="music-player-card">
+            <a href="http://127.0.0.1:5500/player-fullscreen/index.html">
+                <div class="player-header">
+                    <img src="images/musica_capa.png" alt="Capa do Álbum" class="player-album-art">
+                    <div class="player-info">
+                        <div class="player-info-header">
+                            <div>
+                                <div class="song-name">Every Breath You Take</div>
+                                <div class="artist-name">The Police</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <div class="player-progress">
+                <span class="time-current">2:31</span>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" style="width: 70%;"></div>
+                </div>
+                <span class="time-total">3:18</span>
+
+                <img src="images/musica_favoritar.png" alt="Favoritar" class="player-heart-icon">
+            </div>
+
+            <div class="player-controls">
+                <img src="images/musica_voltar.png" alt="Voltar" class="control-icon">
+                <img src="images/musica_pausar.png" alt="Pausar" class="control-icon play-pause">
+                <img src="images/musica_avancar.png" alt="Avançar" class="control-icon">
+            </div>
+        </div>
+
+        <div class="queue-card">
+            <h4>Próximas da fila</h4>
+
+            <ul class="queue-list">
+                <li class="queue-item">
+                    <img src="images/capa_heaven.png" alt="Capa">
+                    <div class="queue-item-info">
+                        <div class="song-name">Heaven and back</div>
+                        <div class="artist-name">Chase Atlantic</div>
+                    </div>
+                </li>
+                <li class="queue-item">
+                    <img src="images/capa_hey_brother.png" alt="Capa">
+                    <div class="queue-item-info">
+                        <div class="song-name">Hey Brother</div>
+                        <div class="artist-name">Avicii</div>
+                    </div>
+                </li>
+                <li class="queue-item">
+                    <img src="images/capa_disturbia.png" alt="Capa">
+                    <div class="queue-item-info">
+                        <div class="song-name">Disturbia</div>
+                        <div class="artist-name">Rihanna</div>
+                    </div>
+                </li>
+                <li class="queue-item">
+                    <img src="images/capa_reminder.png" alt="Capa">
+                    <div class="queue-item-info">
+                        <div class="song-name">Reminder</div>
+                        <div class="artist-name">The Weeknd</div>
+                    </div>
+                </li>
+                <li class="queue-item">
+                    <img src="images/capa_we_are.png" alt="Capa">
+                    <div class="queue-item-info">
+                        <div class="song-name">We Are</div>
+                        <div class="artist-name">One Ok Rock</div>
+                    </div>
+                </li>
+                <li class="queue-item">
+                    <img src="images/capa_carry_on.png" alt="Capa">
+                    <div class="queue-item-info">
+                        <div class="song-name">Carry on Wayward Son</div>
+                        <div class="artist-name">Kansas</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </aside>
+
+    <a href="http://127.0.0.1:5500/login/cadastroMusica/index.html" class="fab">
+        <img src="images/adicionar.png" alt="Adicionar">
+    </a>
+
+    <script type="module" src="script.js"></script>
+    <!-- <script type="module" src="../api.js"></script> -->
+</body>
+
+</html>
