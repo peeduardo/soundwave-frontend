@@ -398,3 +398,77 @@ a:active {
     text-decoration: none;
     color: inherit;
 }
+
+
+/* ================== 
+   MODAL CRIAR PLAYLIST (ADICIONADO)
+   ================== */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #2F1043; /* Cor do seu app */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    width: 400px;
+    color: #FFFFFF;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 8px;
+    color: #B3B3B3;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(68, 66, 70, 0.8);
+    color: #FFFFFF;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-actions .btn-primary {
+    background-color: #8A054C; /* Cor do seu app */
+    color: #FFFFFF;
+}
+
+.modal-actions .btn-secondary {
+    background-color: #555;
+    color: #B3B3B3;
+}

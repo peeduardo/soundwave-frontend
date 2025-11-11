@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playlist</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,7 +12,6 @@
 <body>
 
     <nav class="sidebar" id="sidebar">
-
         <ul class="nav-list">
             <li>
                 <a href="#" class="nav-item" id="toggle-menu">
@@ -23,7 +19,6 @@
                 </a>
             </li>
         </ul>
-
         <ul class="nav-list">
             <li>
                 <a href="http://127.0.0.1:5500/login/cadastroUsuario/index.html" class="nav-item">
@@ -44,44 +39,17 @@
                 </a>
             </li>
         </ul>
-
         <div class="recent-playlists">
             <h5 class="nav-title">Playlists recentes</h5>
-            <ul class="nav-list playlist-items">
-                <li>
-                    <a href="#" class="nav-item">
-                        <img src="images/capa_rock.png" alt="As melhores 80s" class="nav-icon playlist-cover">
-                        <span class="nav-text">As melhores 80's</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-item">
-                        <img src="images/capa_funk.png" alt="Playlist 2" class="nav-icon playlist-cover">
-                        <span class="nav-text">Playlist 2</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-item">
-                        <img src="images/capa_mpb.png" alt="Playlist 3" class="nav-icon playlist-cover">
-                        <span class="nav-text">Playlist 3</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-item">
-                        <img src="images/capa_pop.png" alt="Playlist 4" class="nav-icon playlist-cover">
-                        <span class="nav-text">Playlist 4</span>
-                    </a>
-                </li>
+            <ul class="nav-list playlist-items" id="sidebar-playlists">
             </ul>
         </div>
     </nav>
 
     <main class="content">
-
         <a href="http://127.0.0.1:5500/home/index.html" class="logo-container">
             <img src="images/logo_Soundwave.png" alt="Soundwave Logo" class="logo-sw">
         </a>
-
         <div class="search-bar">
             <img src="images/buscar_lupa.png" alt="Buscar" class="search-icon">
             <input type="text" placeholder="O que você quer ouvir ?">
@@ -89,89 +57,52 @@
 
         <section class="playlist-details">
             <div class="cover-art">
-                <img src="Imagens/Funk do Momento.png" alt="Capa da Playlist">
+                <img src="Imagens/Funk do Momento.png" alt="Capa da Playlist" id="playlist-cover">
             </div>
             <div class="info">
                 <h1>Soundwaves</h1>
-                <h2>Funk do Momento</h2>
+                <h2 id="playlist-name">Carregando...</h2>
                 <div class="actions">
-                    <button class="download-button"><i class="fas fa-download"></i></button>
-                    <button class="play-button"><i class="fas fa-play-circle"></i></button>
-                    <button class="more-options"><i class="fas fa-ellipsis-h"></i></button>
+                    <button class="play-button" id="main-play-button">
+                        <img src="images/musica_despausar.png" alt="Tocar">
+                    </button>
+                    <button class="more-options" id="btn-more-options">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
                 </div>
-            </div>
+
+                <div class="dropdown-menu" id="playlist-dropdown-menu">
+                    <a href="#" id="btn-edit-playlist">
+                        <i class="fas fa-pencil-alt"></i>
+                        Editar nome
+                    </a>
+                    <a href="#" id="btn-delete-playlist" class="danger">
+                        <i class="fas fa-trash"></i>
+                        Excluir playlist
+                    </a>
+                </div>
+
+                <div id="modal-editar-playlist" class="dialog-box">
+                    <form id="form-editar-playlist">
+                        <label for="nome-playlist-editar">Novo nome:</label>
+                        <input type="text" id="nome-playlist-editar" required>
+                        <div class="dialog-actions">
+                            <button type="button" id="btn-cancelar-editar" class="btn-secondary">Cancelar</button>
+                            <button type="submit" class="btn-primary">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div> </section>
+
+        <section class="track-list" id="track-list-container">
         </section>
-        <section class="track-list">
-            <div class="track-item">
-                <div class="track-info">
-                    <img src="Imagens/You're Still The One.jpg" alt="Capa">
-                    <div>
-                        <p class="track-title">You're Still The One</p>
-                        <p class="track-artist">Teddy Swims</p>
-                    </div>
-                </div>
-                <span class="track-duration">3:16</span>
-                <i class="fas fa-heart track-like"></i>
-            </div>
 
-            <div class="track-item">
-                <div class="track-info">
-                    <img src="Imagens/Think I'm In Love With You.jpg" alt="Capa">
-                    <div>
-                        <p class="track-title">Think I'm In Love With You</p>
-                        <p class="track-artist">Chris Stapleton</p>
-                    </div>
-                </div>
-                <span class="track-duration">3:42</span>
-                <i class="fas fa-heart track-like"></i>
-            </div>
-
-            <div class="track-item">
-                <div class="track-info">
-                    <img src="Imagens/The Door.jpg" alt="Capa">
-                    <div>
-                        <p class="track-title">The Door</p>
-                        <p class="track-artist">Teddy Swims</p>
-                    </div>
-                </div>
-                <span class="track-duration">3:32</span>
-                <i class="fas fa-heart track-like"></i>
-            </div>
-
-            <div class="track-item">
-                <div class="track-info">
-                    <img src="Imagens/Angels Like You.jpg" alt="Capa">
-                    <div>
-                        <p class="track-title">Angels Like You</p>
-                        <p class="track-artist">Miley Cyrus</p>
-                    </div>
-                </div>
-                <span class="track-duration">3:16</span>
-                <i class="fas fa-heart track-like"></i>
-            </div>
-
-            <div class="track-item">
-                <div class="track-info">
-                    <img src="Imagens/The Way I Wanna.jpg" alt="Capa">
-                    <div>
-                        <p class="track-title">The Way I Wanna</p>
-                        <p class="track-artist">Max McKown</p>
-                    </div>
-                </div>
-                <span class="track-duration">2:36</span>
-                <i class="fas fa-heart track-like"></i>
-            </div>
-
-            <a href="">
-                <div class="fab">
-                    <img src="images/adicionar.png" alt="Adicionar">
-                </div>
-            </a>
-
+        <a href="#" class="fab" id="btn-abrir-modal-musica">
+            <img src="images/adicionar.png" alt="Adicionar Música">
+        </a>
     </main>
 
-    </section>
-    </main>
     <aside class="right-sidebar">
         <div class="music-player-card">
             <a href="http://127.0.0.1:5500/player-fullscreen/index.html">
@@ -187,76 +118,47 @@
                 </div>
             </div>
             </a>
-
             <div class="player-progress">
                 <span class="time-current">2:31</span>
                 <div class="progress-bar-container">
                     <div class="progress-bar-fill" style="width: 70%;"></div>
                 </div>
                 <span class="time-total">3:18</span>
-
                 <img src="images/musica_favoritar.png" alt="Favoritar" class="player-heart-icon">
             </div>
-
             <div class="player-controls">
                 <img src="images/musica_voltar.png" alt="Voltar" class="control-icon">
                 <img src="images/musica_pausar.png" alt="Pausar" class="control-icon play-pause">
                 <img src="images/musica_avancar.png" alt="Avançar" class="control-icon">
             </div>
         </div>
-
         <div class="queue-card">
             <h4>Próximas da fila</h4>
-
             <ul class="queue-list">
-                <li class="queue-item">
-                    <img src="images/capa_heaven.png" alt="Capa">
-                    <div class="queue-item-info">
-                        <div class="song-name">Heaven and back</div>
-                        <div class="artist-name">Chase Atlantic</div>
-                    </div>
-                </li>
-                <li class="queue-item">
-                    <img src="images/capa_hey_brother.png" alt="Capa">
-                    <div class="queue-item-info">
-                        <div class="song-name">Hey Brother</div>
-                        <div class="artist-name">Avicii</div>
-                    </div>
-                </li>
-                <li class="queue-item">
-                    <img src="images/capa_disturbia.png" alt="Capa">
-                    <div class="queue-item-info">
-                        <div class="song-name">Disturbia</div>
-                        <div class="artist-name">Rihanna</div>
-                    </div>
-                </li>
-                <li class="queue-item">
-                    <img src="images/capa_reminder.png" alt="Capa">
-                    <div class="queue-item-info">
-                        <div class="song-name">Reminder</div>
-                        <div class="artist-name">The Weeknd</div>
-                    </div>
-                </li>
-                <li class="queue-item">
-                    <img src="images/capa_we_are.png" alt="Capa">
-                    <div class="queue-item-info">
-                        <div class="song-name">We Are</div>
-                        <div class="artist-name">One Ok Rock</div>
-                    </div>
-                </li>
-                <li class="queue-item">
-                    <img src="images/capa_carry_on.png" alt="Capa">
-                    <div class="queue-item-info">
-                        <div class="song-name">Carry on Wayward Son</div>
-                        <div class="artist-name">Kansas</div>
-                    </div>
-                </li>
             </ul>
         </div>
-
     </aside>
 
     <script src="script.js"></script>
-</body>
 
+    <div id="modal-add-musica" class="modal-overlay" style="display:none;">
+        <div class="modal-content modal-large">
+            <h2>Adicionar músicas à playlist</h2>
+            <form id="form-add-musica">
+                <div class="modal-search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="input-filtro-musica" placeholder="Filtrar músicas...">
+                </div>
+                <div class="modal-track-list" id="modal-lista-de-musicas">
+                    <p>Carregando músicas...</p>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="btn-cancelar-musica" class="btn-secondary">Cancelar</button>
+                    <button type="submit" class="btn-primary">Adicionar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
 </html>
