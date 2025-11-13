@@ -7,13 +7,21 @@ async function carregarPlaylistsDaHome() {
   const container = document.getElementById("playlist-grid");
   if (!container) return; // Se não achar o container, para.
 
+<<<<<<< Updated upstream
+  if (!data || data.length === 0) {
+    container.innerHTML = "<p>Nenhuma playlist encontrada.</p>";
+    return;
+  }
+=======
   try {
-    const data = await api(); // busca as playlists (GET)
+    const data = await api();  // busca as playlists (GET)
+    console.log(data)
     if (!data || data.length === 0) {
       // Se não houver playlists, exibe a mensagem no lugar certo
       container.innerHTML = "<p>Nenhuma playlist encontrada. Clique no '+' para criar uma!</p>";
       return;
     }
+>>>>>>> Stashed changes
 
     // Mapeia cada playlist em HTML
     container.innerHTML = data
@@ -28,16 +36,13 @@ async function carregarPlaylistsDaHome() {
                       <p>${playlist.musicas ? playlist.musicas.length : 0} músicas</p>
                   </div>
               </div>
-          </a> 
-        `
-      )
-      .join("");
-  } catch (error) {
-    console.error("Falha ao carregar playlists:", error);
-    container.innerHTML = "<p>Erro ao carregar playlists.</p>";
-  }
-}
+          </div>
+      `
+    )
+    .join("");
 
+<<<<<<< Updated upstream
+=======
 /**
  * Função 2: Envia a nova playlist para o backend (POST)
  */
@@ -49,7 +54,7 @@ async function criarPlaylistNoBackend(nome) {
   const playlistDTO = {
     nome: nome,
     idMusicas: [], // Lista vazia de músicas
-    idUsuario: 1   // <-- IMPORTANTE: Verifique se existe um usuário com ID 1 no seu banco!
+    idUsuario: 2   // <-- IMPORTANTE: Verifique se existe um usuário com ID 1 no seu banco!
   };
 
   try {
@@ -92,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
   carregarPlaylistsDaHome();
 
   // 2. Lógica do Menu Sidebar
+>>>>>>> Stashed changes
   const sidebar = document.getElementById("sidebar");
   const toggleMenuButton = document.getElementById("toggle-menu");
 

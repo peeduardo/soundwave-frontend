@@ -140,6 +140,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 400px); 
     gap: 20px;
+    margin-top: 50px;
     justify-content: center; 
 }
 
