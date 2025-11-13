@@ -25,9 +25,9 @@ body {
     overflow-x: hidden; 
 }
 
-/* ================== 
-   MENU LATERAL(esquerda)
-   ================== */
+/* ... (todo o seu CSS da sidebar, content, player, etc. ... */
+/* ... (sem alterações no código existente) ... */
+
 .sidebar {
     width: 98px;
     height: 100vh; 
@@ -42,12 +42,10 @@ body {
     flex-direction: column;
     justify-content: space-between;
 }
-
 .sidebar.open {
     width: 298px;
     background-color: rgba(68, 66, 70, 0.6); 
 }
-
 .nav-list { list-style: none; }
 .nav-item { display: flex; align-items: center; text-decoration: none; color: #FFFFFF; padding: 12px 10px; margin-bottom: 10px; border-radius: 8px; white-space: nowrap; }
 .nav-icon { width: 24px; height: 24px; min-width: 24px; margin-right: 20px; }
@@ -56,17 +54,12 @@ body {
 .sidebar.open .nav-item { 
     background-color: rgba(34, 34, 34, 0.5); 
 }
-
-/* ================== 
-    PLAYLISTS RECENTES
-   ================== */
 .recent-playlists {
     margin-top: 20px;
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1); 
     margin-bottom: 80px; 
 }
-
 .nav-title {
     color: #B3B3B3;
     font-size: 14px;
@@ -76,20 +69,13 @@ body {
     opacity: 0; 
     transition: opacity 0.2s ease-in-out;
 }
-
 .sidebar.open .nav-title {
     opacity: 1; 
 }
-
 .playlist-cover {
     border-radius: 4px; 
     object-fit: cover;
 }
-
-
-/* ================== 
-   CONTEÚDO PRINCIPAL
-   ================== */
 .content {
     flex-grow: 1;
     padding: 30px 40px; 
@@ -97,7 +83,6 @@ body {
     height: 100vh; 
     position: relative; 
 }
-
 .logo-container { 
     display: block; 
     padding-left: 0;      
@@ -108,18 +93,15 @@ body {
     opacity: 1;
     transition: opacity 0.2s ease-out; 
 }
-
 .sidebar.open ~ .content .logo-container {
     opacity: 0;
     pointer-events: none; 
 }
-
 .logo-sw { 
     width: 160px;          
     height: 160px;         
     cursor: pointer; 
 }
-
 .search-bar {
     display: flex;
     align-items: center;
@@ -136,14 +118,12 @@ body {
 .search-icon { width: 20px; height: 20px; margin-right: 10px; opacity: 0.7; }
 .search-bar input { flex-grow: 1; background: transparent; border: none; outline: none; color: #FFFFFF; font-size: 16px; font-family: 'Actor', sans-serif; }
 .search-bar input::placeholder { color: #b0b0b0; }
-
 .playlist-grid {
     display: grid;
     grid-template-columns: repeat(2, 400px); 
     gap: 20px;
     justify-content: center; 
 }
-
 .card {
     background-color: rgba(68, 66, 70, 0.5); 
     border-radius: 8px;
@@ -154,18 +134,15 @@ body {
     transition: background-color 0.2s;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
 }
-
 .card:hover {
     background-color: rgba(90, 88, 94, 0.7); 
 }
-
 .card img {
     width: 60px; 
     height: 60px;
     border-radius: 4px;
     object-fit: cover; 
 }
-
 .card-info h3 {
     font-family: "SF Pro Heavy", "SF Pro Display", -apple-system, 
                 BlinkMacSystemFont, "Segoe UI", Roboto, 
@@ -174,13 +151,10 @@ body {
     font-size: 18px; 
     margin-bottom: 3px; 
 }
-
 .card-info p {
     font-size: 12px; 
     color: #B3B3B3; 
 }
-
-/* Card de Lançamento (Azul) */
 .launch-card {
     background-color: rgba(10, 59, 128, 0.5); 
     border-radius: 8px;
@@ -198,11 +172,6 @@ body {
 .launch-text h2 { font-size: 32px; font-weight: 700; }
 .launch-text h3 { font-size: 18px; font-weight: normal; }
 .launch-pause-icon { width: 36px; height: 36px; cursor: pointer; margin-right: 20px; }
-
-
-/* ================== 
-   MENU LATERAL DIREITA (Player e Proximas da fila)
-   ================== */
 .right-sidebar {
     width: 298px; 
     height: 100vh; 
@@ -214,8 +183,6 @@ body {
     flex-direction: column;
     gap: 20px; 
 }
-
-/* Card do Player */
 .music-player-card {
     background-color: rgba(34, 34, 34, 0.50); 
     color: #FFFFFF;
@@ -230,14 +197,12 @@ body {
     justify-content: space-between; 
     margin: 0 auto; 
 }
-
 .player-header { 
     display: flex; 
     align-items: center; 
     width: 100%; 
     gap: 15px; 
 }
-
 .player-album-art { 
     width: 60px; 
     height: 60px;
@@ -245,16 +210,13 @@ body {
     flex-shrink: 0; 
     object-fit: cover;
 }
-
 .player-info { 
     flex-grow: 1; 
     min-width: 0; 
 }
-
 .player-info-header { 
     display: block; 
 }
-
 .player-info .song-name { 
     font-size: 16px; 
     font-weight: bold;
@@ -262,14 +224,12 @@ body {
     overflow-wrap: break-word; 
     display: block; 
 }
-
 .player-info .artist-name { 
     font-size: 13px; 
     color: #B3B3B3; 
     white-space: normal;
     display: block;
 }
-
 .player-progress { 
     display: flex; 
     align-items: center; 
@@ -279,27 +239,22 @@ body {
     width: 100%;
     margin: 10px 0; 
 }
-
 .player-progress .time-current,
 .player-progress .time-total {
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold; 
 }
-
-
 .progress-bar-container { 
     flex-grow: 1; 
     height: 4px; 
     background-color: #555; 
     border-radius: 2px; 
 }
-
 .progress-bar-fill { 
     height: 100%; 
     background-color: #FFFFFF; 
     border-radius: 2px; 
 }
-
 .player-heart-icon { 
     width: 20px; 
     height: 20px; 
@@ -308,7 +263,6 @@ body {
     flex-shrink: 0; 
     margin-left: 4px; 
 }
-
 .player-controls { 
     display: flex; 
     justify-content: center; 
@@ -316,21 +270,17 @@ body {
     gap: 30px; 
     width: 100%;
 }
-
 .control-icon { 
     width: 28px; 
     height: 28px; 
     cursor: pointer; 
     opacity: 0.9;
 }
-
 .control-icon.play-pause { 
     width: 40px; 
     height: 40px; 
     opacity: 1;
 }
-
-/* Card da Fila */
 .queue-card {
     background-color: rgba(34, 34, 34, 0.50); 
     display: flex;
@@ -342,7 +292,6 @@ body {
     width: 258px; 
     margin: 0 auto; 
 }
-
 .queue-card h4 { color: #B3B3B3; font-size: 16px; margin-bottom: 20px; flex-shrink: 0; }
 .queue-list { list-style: none; overflow-y: auto; flex-grow: 1; min-height: 0; }
 .queue-item { display: flex; align-items: center; margin-bottom: 15px; }
@@ -369,34 +318,24 @@ body {
 .queue-list::-webkit-scrollbar-track { background: #222222; border-radius: 10px; }
 .queue-list::-webkit-scrollbar-thumb { background-color: #B3B3B3; border-radius: 10px; border: 2px solid #222222; }
 .queue-list::-webkit-scrollbar-thumb:hover { background-color: #FFFFFF; }
-
-/* ================== 
-   BOTÃO FLUTUANTE (+)
-   ================== */
-/* ================== 
-   BOTÃO FLUTUANTE (+)
-   ================== */
 .fab {
-    position: relative; /* antes era fixed */
-    margin: 20px auto 0; /* centraliza horizontalmente e dá espaço acima */
+    position: fixed; 
+    bottom: 30px; 
+    right: 360px; 
     width: 50px; 
     height: 50px;
     cursor: pointer;
-    z-index: 1; /* não precisa ser muito alto agora */
+    z-index: 100; 
 }
-
 .fab img { 
     width: 50px; 
     height: 50px; 
     opacity: 0.8; 
     transition: opacity 0.2s; 
 }
-
 .fab:hover img { 
     opacity: 1; 
 }
-
-
 .sidebar.open #toggle-menu {
     background-color: transparent;
 }
@@ -405,20 +344,16 @@ body {
     text-decoration: none;
     color: inherit;
 }
-
-
-
 .playlist-details {
     display: flex;
     align-items: center;
     background: #444246;
     border-radius: 8px;
     padding: 15px;
-    margin-top: 100px; /* aumente aqui para descer mais */
+    margin-top: 100px;
     margin-bottom: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
-
 .cover-art img {
     width: 150px;
     height: 150px;
@@ -454,16 +389,19 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 .actions button:hover {
     color: var(--accent);
     filter: drop-shadow(0 0 6px var(--accent));
 }
-
 .actions .play-button {
-    font-size: 42px;
+    /* font-size: 42px; */ /* Corretamente removido */
 }
-
+/* Estilo para a IMAGEM dentro do botão de play */
+.actions .play-button img {
+    width: 42px;
+    height: 42px;
+    display: block;
+}
 .actions .play-button:hover {
     color: var(--accent);
     filter: drop-shadow(0 0 6px var(--accent));
@@ -473,7 +411,6 @@ body {
     flex-direction: column;
     gap: 10px;
 }
-
 .track-item {
     display: grid;
     grid-template-columns: 1fr auto auto;
@@ -484,45 +421,37 @@ body {
     transition: 0.3s;
     box-shadow: 0 5px 18px rgba(0, 0, 0, 0.35);
 }
-
 .track-item:hover {
     background-color: rgba(85, 85, 85, 0.5);
     transform: translateY(-2px);
 }
-
 .track-info {
     display: flex;
     align-items: center;
     gap: 15px;
 }
-
 .track-info img {
     width: 45px;
     height: 45px;
     border-radius: 8px;
 }
-
 .track-title {
     font-weight: 600;
 }
-
 .track-artist {
     color: var(--text-muted);
     font-size: 0.9em;
 }
-
 .track-duration {
     color: var(--text-muted);
     margin-right: 15px;
 }
-
 .track-like {
     color: #fff;
     opacity: 1;
     cursor: pointer;
     transition: 0.3s;
 }
-
 .track-like:hover,
 .track-like.liked {
     color: var(--accent);
@@ -530,4 +459,234 @@ body {
 }
 .song-name{
     color: #fff;
+}
+.empty-playlist-message {
+    text-align: center;
+    font-size: 18px;
+    color: #B3B3B3;
+    padding: 50px 20px;
+    background: rgba(68, 66, 70, 0.4);
+    border-radius: 8px;
+    margin-top: 20px;
+}
+a,
+a:visited {
+    text-decoration: none; 
+    color: inherit;       
+}
+
+/* ================== 
+   MENU DROPDOWN (3 PONTOS)
+   ================== */
+.info {
+    position: relative; 
+}
+.dropdown-menu {
+    display: none; 
+    position: absolute;
+    top: 60px; 
+    left: 120px; 
+    background-color: #2F1043; 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    width: 200px;
+    z-index: 101; 
+    overflow: hidden;
+}
+.dropdown-menu.show {
+    display: block; 
+}
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 14px;
+}
+.dropdown-menu a:hover {
+    background-color: rgba(85, 85, 85, 0.5);
+}
+.dropdown-menu a.danger {
+    color: #ff8a8a;
+}
+.dropdown-menu a.danger:hover {
+    color: #FFFFFF;
+    background-color: #8A054C; 
+}
+.dropdown-menu a i {
+    width: 16px; 
+    text-align: center;
+}
+
+/* ================== 
+   MODAL (PADRÃO)
+   ================== */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    background: #2F1043;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    width: 400px;
+    color: #FFFFFF;
+}
+.modal-content.modal-large {
+    width: 600px; 
+    max-height: 80vh; 
+    display: flex;
+    flex-direction: column;
+}
+.modal-search-bar {
+    display: flex;
+    align-items: center;
+    background-color: rgba(68, 66, 70, 0.8);
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.modal-search-bar i {
+    margin-right: 10px;
+    color: #B3B3B3;
+}
+.modal-search-bar input {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+    font-size: 16px;
+}
+.modal-track-list {
+    overflow-y: auto; 
+    max-height: 400px; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+.modal-track-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+.modal-track-item:hover {
+    background-color: rgba(85, 85, 85, 0.5);
+}
+.modal-track-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.modal-track-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+.modal-track-info {
+    flex-grow: 1;
+}
+.modal-track-info .track-title {
+    font-weight: 600;
+    color: #FFFFFF;
+}
+.modal-track-info .track-artist {
+    font-size: 0.9em;
+    color: #B3B3B3;
+}
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: auto; 
+}
+.modal-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.modal-actions .btn-primary {
+    background-color: #8A054C; 
+    color: #FFFFFF;
+}
+.modal-actions .btn-secondary {
+    background-color: #555;
+    color: #B3B3B3;
+}
+
+/* ==================================== */
+/* NOVO ESTILO: Diálogo Pequeno e Discreto */
+/* ==================================== */
+.dialog-box {
+    display: none; /* Começa escondido */
+    position: absolute;
+    top: 60px; /* Posição abaixo do botão de 3 pontos */
+    left: 120px; /* Posição abaixo do botão de 3 pontos */
+    background-color: #2F1043; /* Cor escura do app */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    width: 250px; /* Largura do card */
+    padding: 15px;
+    z-index: 102; /* Acima do dropdown */
+}
+.dialog-box.show {
+    display: block; /* Classe que o JS vai usar para mostrar */
+}
+.dialog-box label {
+    display: block;
+    margin-bottom: 8px;
+    color: #B3B3B3;
+    font-size: 0.9em;
+}
+.dialog-box input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: rgba(68, 66, 70, 0.8);
+    color: #fff;
+    font-size: 1em;
+}
+.dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.dialog-actions button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+}
+.dialog-actions .btn-secondary {
+    background-color: #555;
+    color: #B3B3B3;
+}
+.dialog-actions .btn-primary {
+    background-color: #8A054C; /* Cor principal */
+    color: #FFFFFF;
 }
