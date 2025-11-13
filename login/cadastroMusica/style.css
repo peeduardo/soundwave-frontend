@@ -17,7 +17,7 @@ html {
 
 .img-lateral {
     flex: 1;
-    background: url('/login/img/fundocadmsc.jfif') no-repeat center center;
+    background: url('../img/fundocadmsc.jfif') no-repeat center center; 
     background-size: cover;
 }
 
@@ -70,6 +70,13 @@ h2 {
     color: #fff;
     font-size: 14px;
     outline: none;
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+.form-cadastro input:not([type="file"]):valid, 
+.form-cadastro input:not([type="file"]):focus {
+    background-color: #ffffff; 
+    color: #000; 
 }
 
 .form-cadastro input::placeholder {
@@ -83,6 +90,11 @@ h2 {
     border-radius: 10px;
     cursor: pointer;
     font-size: 14px;
+    display: flex; 
+    align-items: center;
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
     transition: 0.3s;
 }
 
@@ -91,9 +103,10 @@ h2 {
     color: #fff;
 }
 
-.file-label.selecionado {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.3);
+.file-label.file-selected {
+    background-color: #ffffff; 
+    color: #000; 
+    font-weight: 500; 
 }
 
 button {
