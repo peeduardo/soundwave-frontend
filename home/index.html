@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
     <nav class="sidebar" id="sidebar">
 
         <ul class="nav-list">
@@ -87,6 +86,7 @@
             <input type="text" placeholder="O que você quer ouvir ?">
         </div>
 
+<<<<<<< Updated upstream
         <div id="playlist-grid">
 <!-- 
             <a href="http://127.0.0.1:5500/playlist/Soundwave/index.html">
@@ -139,6 +139,9 @@
                 </div>
             </div> -->
 
+=======
+        <div class="playlist-grid" id="playlist-grid">
+>>>>>>> Stashed changes
         </div>
 
         <div class="launch-card">
@@ -153,6 +156,7 @@
             <img src="images/pause.png" alt="Pausar" class="launch-pause-icon">
         </div>
 
+<<<<<<< Updated upstream
         <div class="playlist-grid">
             <div class="card">
                 <img src="images/capa_reggaeton.png" alt="Capa Reggaeton">
@@ -170,6 +174,8 @@
                 </div>
             </div>
         </div>
+=======
+>>>>>>> Stashed changes
     </main>
 
     <aside class="right-sidebar">
@@ -256,12 +262,29 @@
 
     </aside>
 
-    <a href="http://127.0.0.1:5500/login/cadastroMusica/index.html" class="fab">
-        <img src="images/adicionar.png" alt="Adicionar">
+    <a href="#" class="fab" id="btn-abrir-modal-playlist">
+        <img src="images/adicionar.png" alt="Adicionar Playlist">
     </a>
 
     <script type="module" src="script.js"></script>
+<<<<<<< Updated upstream
     <!-- <script type="module" src="../api.js"></script> -->
-</body>
+=======
 
+    <div id="modal-criar-playlist" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <h2>Criar nova playlist</h2>
+            <form id="form-criar-playlist">
+                <label for="nome-playlist">Nome da Playlist</label>
+                <input type="text" id="nome-playlist" placeholder="Minha playlist..." required>
+                <div class="modal-actions">
+                    <button type="button" id="btn-cancelar" class="btn-secondary">Cancelar</button>
+                    <button type="submit" class="btn-primary">Criar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+>>>>>>> Stashed changes
+</body>
 </html>
