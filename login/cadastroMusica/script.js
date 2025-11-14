@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault(); 
             
             const formData = new FormData(this);
+            // formData.append("idAlbum: ", 2);
 
             const backendUrl = 'http://localhost:8080/musicas/upload';
 
