@@ -4,8 +4,10 @@
     box-sizing: border-box;
 }
 
-body, html {
-    height: 100%;
+body,
+html {
+    overflow-x: hidden;
+    width: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -16,13 +18,22 @@ body, html {
 
 .img-lateral {
     flex: 1;
-    background: url('/login/img/fundocadmsc.jfif') no-repeat center center;
+    background: url('../img/fundocadmsc.png') no-repeat center center;
     background-size: cover;
 }
 
 .form-container {
     flex: 1;
-    background: linear-gradient(135deg,#4b006e, #2f1043, #8a054c);
+    background: linear-gradient(135deg, 
+        #8A054C 6%, 
+        #880F60 13%, 
+        #2F1043 25%, 
+        #2F1043 41%, 
+        #2F1043 57%, 
+        #81064B 94%, 
+        #8A054C 98%, 
+        #861974 100%
+    );
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,7 +49,7 @@ body, html {
     right: 30px;
     width: 90px;
     height: 90px;
-    background: url('/img/logo.png') no-repeat center;
+    background: url('../img/logo.png') no-repeat center;
     background-size: contain;
 }
 
@@ -57,11 +68,12 @@ h2 {
     max-width: 350px;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     gap: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-.form-cadastro input{
+.form-cadastro input {
     background: rgba(255, 255, 255, 0.1);
     border: none;
     padding: 15px;
@@ -69,6 +81,7 @@ h2 {
     color: #fff;
     font-size: 14px;
     outline: none;
+    width: 100%;
 }
 
 .form-cadastro input::placeholder {
@@ -85,24 +98,11 @@ button {
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
-    margin-top: 10px;
+    width: 100%;
 }
 
 button:hover {
     background: linear-gradient(90deg, #7c0fd6, #a130ff);
-}
-
-.form-cadastro {
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 20px;
-    padding: 40px;
-    width: 100%;
-    max-width: 350px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    position: relative;
 }
 
 .senha {
@@ -138,4 +138,36 @@ button:hover {
 
 .funcaoSenha:hover {
     color: #fff;
+}
+
+.input-foto {
+    width: 100%;
+}
+
+#foto {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+#foto-label {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #b8b8b8;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.preview-foto {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 10px;
+    border: 2px solid #6401b0;
+    box-shadow: 0 0 10px rgba(100, 1, 176, 0.3);
 }
