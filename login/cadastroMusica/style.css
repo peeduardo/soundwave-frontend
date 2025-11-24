@@ -48,17 +48,20 @@ h2 {
     font-weight: 600;
     margin-bottom: 25px;
     text-align: center;
+    grid-column: 1 / -1; 
 }
 
 .form-cadastro {
     background: rgba(0, 0, 0, 0.4);
     border-radius: 20px;
     padding: 40px;
-    width: 100%;
-    max-width: 350px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    width: 90%; 
+    max-width: 800px; 
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+    
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
@@ -70,7 +73,12 @@ h2 {
     color: #fff;
     font-size: 14px;
     outline: none;
-    transition: background-color 0.3s, color 0.3s; 
+    transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+}
+
+.form-cadastro input[name="nome"] {
+    grid-column: 1 / -1;
 }
 
 .form-cadastro input:not([type="file"]):valid, 
@@ -96,6 +104,7 @@ h2 {
     white-space: nowrap; 
     text-overflow: ellipsis; 
     transition: 0.3s;
+    width: 100%;
 }
 
 .file-label:hover {
@@ -120,8 +129,17 @@ button {
     cursor: pointer;
     transition: 0.3s;
     margin-top: 10px;
+    
+    grid-column: 1 / -1; 
 }
 
 button:hover {
     background: linear-gradient(#7c0fd6, #a130ff);
+}
+
+@media (max-width: 768px) {
+    .form-cadastro {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+    }
 }
