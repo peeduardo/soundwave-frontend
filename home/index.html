@@ -25,7 +25,7 @@
 
         <ul class="nav-list">
             <li>
-                <a href="../cadastroUsuario/index.html" class="nav-item">
+                <a href="../login/cadastroUsuario/index.html" class="nav-item">
                     <img src="images/menu_user.png" alt="Usuário" class="nav-icon">
                     <span class="nav-text" id="userName">Usuário</span>
                 </a>
@@ -164,7 +164,7 @@
         </div>
     </aside>
 
-    <a href="../cadastroMusica/index.html" class="fab">
+    <a href="../login/cadastroMusica/index.html" class="fab">
         <img src="images/adicionar.png" alt="Adicionar">
     </a>
 
@@ -174,7 +174,7 @@
 
             if (!token) {
                 alert("Sessão expirada. Faça login novamente.");
-                window.location.href = "../login/index.html";
+                window.location.href = "../login/login/index.html";
                 return;
             }
 
@@ -192,7 +192,7 @@
                 console.error("Erro de autenticação:", erro);
                 alert("Sessão inválida. Faça login novamente.");
                 localStorage.clear();
-                window.location.href = "../login/index.html";
+                window.location.href = "../login/login/index.html";
             }
         });
     </script>
