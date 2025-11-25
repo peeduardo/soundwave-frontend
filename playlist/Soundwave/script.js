@@ -460,7 +460,7 @@ function navegarMusica(set) {
   localStorage.setItem("ordem", JSON.stringify(padronizada))
   console.log(padronizada)
   localStorage.setItem("musica", JSON.stringify(dados))
-  window.location.href = "../../player-fullscreen/index.html"
+  window.open("http://127.0.0.1:5500/player-fullscreen/index.html", "_blank")
 }
 
 function padronizar(musicas) {
@@ -472,3 +472,4 @@ function padronizar(musicas) {
     musica: baseUrl + m.caminho_arquivo
   }));
 }
+
