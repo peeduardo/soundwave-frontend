@@ -429,6 +429,7 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
+    cursor: pointer;
 }
 .track-info img {
     width: 45px;

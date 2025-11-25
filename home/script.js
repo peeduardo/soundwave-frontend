@@ -36,7 +36,7 @@ const container = document.getElementsByClassName("playlist-grid")[0];
   } catch (error) {
     console.error("Erro ao carregar playlists:", error);
   }
-} // <-- FECHAMENTO QUE FALTAVA AQUI!
+}
 
 
 
