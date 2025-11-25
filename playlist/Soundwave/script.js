@@ -10,6 +10,7 @@
 /**
  * Função 1: Pega o ID da playlist da URL (ex: ?id=5)
  */
+let data;
 function getPlaylistIdFromUrl() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
@@ -53,18 +54,24 @@ function renderPlaylistData(playlist) {
 
   trackContainer.innerHTML = '';
 
+
   if (playlist.musicas && playlist.musicas.length > 0) {
     playlist.musicas.forEach(musica => {
+      // console.log(musica)
       const trackItem = document.createElement('div');
       trackItem.className = 'track-item';
       const imgSrc = musica.caminho_imagem ? `http://localhost:8080/${musica.caminho_imagem}` : 'images/capa_mpb.png';
       const arquivoHref = musica.caminho_arquivo ? `http://localhost:8080/${musica.caminho_arquivo}` : '#';
-
       trackItem.innerHTML = `
-        <div class="track-info">
+        <div class="track-info" data-musica="${arquivoHref}"
+                 data-imagem="${imgSrc}"
+                 data-id="${musica.idMusica}"
+                 data-nome="${musica.nome}"
+                 data-artista="${musica.artista}"
+                 onclick="navegarMusica(this)">
           <img src="${imgSrc}" alt="Capa">
           <div>
-            <a href="${arquivoHref}" target="_blank" class="track-title">${musica.nome || 'Título'}</a>
+            <a class="track-title">${musica.nome || 'Título'}</a>
             <p class="track-artist">${musica.genero || 'Artista Desconhecido'}</p>
           </div>
         </div>
@@ -114,6 +121,7 @@ async function carregarDadosDaPagina() {
   if (playlistId) {
     window.currentPlaylistId = playlistId;
     const playlistData = await fetchPlaylistData(playlistId);
+    data = playlistData;
     renderPlaylistData(playlistData);
   }
 }
@@ -436,3 +444,31 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+function navegarMusica(set) {
+
+  const dados = {
+    id: set.dataset.id,
+    musica: set.dataset.musica,
+    imagem: set.dataset.imagem,
+    nome: set.dataset.nome,
+    artista: set.dataset.artista
+  }
+  const padronizada = padronizar(data.musicas);
+
+
+  localStorage.setItem("ordem", JSON.stringify(padronizada))
+  console.log(padronizada)
+  localStorage.setItem("musica", JSON.stringify(dados))
+  window.location.href = "../../player-fullscreen/index.html"
+}
+
+function padronizar(musicas) {
+  const baseUrl = "http://localhost:8080/";
+
+  return musicas.map(m => ({
+    ...m,
+    imagem: baseUrl + m.caminho_imagem,
+    musica: baseUrl + m.caminho_arquivo
+  }));
+}
