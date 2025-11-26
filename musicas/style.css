@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, 
+        #8A054C 6%, 
+        #880F60 13%, 
+        #2F1043 25%, 
+        #2F1043 41%, 
+        #2F1043 57%, 
+        #81064B 94%, 
+        #8A054C 98%, 
+        #861974 100%
+    );
+    min-height: 100vh;
+    padding: 40px;
+    color: #FFFFFF;
+}
+
+/* ==========================
+   TÍTULO
+   ========================== */
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* ==========================
+   LISTA DE MÚSICAS
+   ========================== */
+#lista-musicas {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Card da música – estilo parecido com a home */
+.musica-item {
+    background-color: rgba(68, 66, 70, 0.5);
+    padding: 18px 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: background 0.2s ease-in-out;
+}
+
+.musica-item:hover {
+    background-color: rgba(90, 88, 94, 0.7);
+}
+
+/* Nome da música */
+.musica-item p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #FFF;
+}
+
+/* ==========================
+   BOTÃO DE EXCLUIR
+   ========================== */
+.delete-btn {
+    background-color: #8A054C;
+    border: none;
+    padding: 10px 18px;
+    color: #FFF;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.delete-btn:hover {
+    background-color: #B40661;
+    transform: scale(1.05);
+}

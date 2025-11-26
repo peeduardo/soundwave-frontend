@@ -72,7 +72,7 @@ function renderPlaylistData(playlist) {
           <img src="${imgSrc}" alt="Capa">
           <div>
             <a class="track-title">${musica.nome || 'Título'}</a>
-            <p class="track-artist">${musica.genero || 'Artista Desconhecido'}</p>
+            <p class="track-artist">${musica.artista || 'Artista Desconhecido'}</p>
           </div>
         </div>
         <span class="track-duration">${formatDuration(musica.duracaoSegundos)}</span>
@@ -460,7 +460,7 @@ function navegarMusica(set) {
   localStorage.setItem("ordem", JSON.stringify(padronizada))
   console.log(padronizada)
   localStorage.setItem("musica", JSON.stringify(dados))
-  window.location.href = "../../player-fullscreen/index.html"
+  window.open("http://127.0.0.1:5500/player-fullscreen/index.html", "_blank")
 }
 
 function padronizar(musicas) {
@@ -471,4 +471,37 @@ function padronizar(musicas) {
     imagem: baseUrl + m.caminho_imagem,
     musica: baseUrl + m.caminho_arquivo
   }));
+  async function removerDaPlaylist(idPlaylist, idMusica) {
+    if (!confirm("Deseja remover esta música da playlist?")) return;
+
+    try {
+        const resp = await fetch(`http://localhost:8080/playlists/${idPlaylist}/musicas/${idMusica}`, {
+            method: "DELETE"
+        });
+
+        if (!resp.ok) {
+            throw new Error("Erro ao remover música da playlist");
+        }
+
+        alert("Música removida!");
+        location.reload();
+
+    } catch (err) {
+        console.error(err);
+        alert("Erro ao remover música.");
+    }
+}
+
+}
+async function removerMusica(idPlaylist, idMusica) {
+    const resp = await fetch(`http://localhost:8080/playlist/${idPlaylist}/musicas/${idMusica}`, {
+        method: "DELETE"
+    });
+
+    if (resp.ok) {
+        alert("Música removida!");
+        carregarMusicas();
+    } else {
+        alert("Erro ao remover a música da playlist");
+    }
 }

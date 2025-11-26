@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 resetFileLabels(); 
                 
                 // Redireciona para a Home
-                window.location.href = '/soundwave-frontend/home/index.html'; 
+                window.location.href = '/home/index.html'; 
             })
             .catch(error => {
                 console.error('Erro de envio:', error);
