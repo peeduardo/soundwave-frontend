@@ -36,7 +36,7 @@ const container = document.getElementsByClassName("playlist-grid")[0];
   } catch (error) {
     console.error("Erro ao carregar playlists:", error);
   }
-} // <-- FECHAMENTO QUE FALTAVA AQUI!
+}
 
 
 
@@ -160,4 +160,59 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+  // ------------------- BUSCA EM TEMPO REAL ---------------------
+
+const campoBusca = document.getElementById("search-bar");
+const resultadoBusca = document.getElementById("resultadoBusca");
+
+if (campoBusca) {
+  campoBusca.addEventListener("input", async () => {
+    const termo = campoBusca.value.trim();
+
+    if (termo.length === 0) {
+      resultadoBusca.innerHTML = "";
+      return;
+    }
+
+    try {
+      const resp = await fetch(`http://localhost:8080/musicas/buscar?termo=${termo}`);
+      const data = await resp.json();
+
+      if (data.status === "ok") {
+        mostrarResultados(data.resultados);
+      } else {
+        mostrarNaoEncontrado(data.sugestoes);
+      }
+
+    } catch (erro) {
+      console.error("Erro na busca:", erro);
+    }
+  });
+}
+
+// Função de exibir resultados encontrados
+function mostrarResultados(lista) {
+  console.log("Resultados encontrados:", lista);
+    resultadoBusca.innerHTML = lista
+    .map(m => `
+      <div class="resultado-item">
+        <img src="http://localhost:8080/${m.caminho_imagem}" alt="Capa">
+          <strong>${m.nome}</strong><br>
+          <span>${m.artista ?? ""}</span>
+      </div>
+    `)
+    .join("");
+}
+
+// Função quando não encontra nada
+function mostrarNaoEncontrado(sugestoes) {
+  resultadoBusca.innerHTML = `
+    <p class="nao-encontrado">❌ Nenhuma música encontrada</p>
+    <h4>Sugestões:</h4>
+    ${sugestoes
+      .map(m => `<div class="resultado-item"><strong>${m.nome}</strong></div>`)
+      .join("")}
+  `;
+}
+
 });
