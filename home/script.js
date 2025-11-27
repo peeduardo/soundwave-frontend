@@ -37,7 +37,30 @@ const container = document.getElementsByClassName("playlist-grid")[0];
     console.error("Erro ao carregar playlists:", error);
   }
 }
+async function carregarPlaylistsNaSidebar() {
+  const playlistContainer = document.getElementById('sidebar-left-playlists');
+  if (!playlistContainer) return;
 
+  try {
+    const response = await fetch('http://localhost:8080/playlists');
+    if (!response.ok) throw new Error('Falha ao carregar playlists');
+    const playlists = await response.json();
+
+    playlistContainer.innerHTML = '';
+    playlists.forEach(playlist => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <a href="http://127.0.0.1:5500/playlist/Soundwave/index.html?id=${playlist.idPlaylist}" class="nav-item">
+          <img src="images/capa_funk.png" alt="${playlist.nome}" class="nav-icon playlist-cover">
+          <span class="nav-text">${playlist.nome}</span>
+        </a>
+      `;
+      playlistContainer.appendChild(li);
+    });
+  } catch (error) {
+    console.error("Erro ao carregar playlists na sidebar:", error);
+  }
+}
 
 
 /**
@@ -89,7 +112,7 @@ async function criarPlaylistNoBackend(nome) {
 document.addEventListener("DOMContentLoaded", function () {
 
   carregarPlaylistsDaHome();
-
+  carregarPlaylistsNaSidebar();
   const sidebar = document.getElementById("sidebar");
   const toggleMenuButton = document.getElementById("toggle-menu");
 

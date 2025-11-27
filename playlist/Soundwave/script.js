@@ -102,7 +102,7 @@ async function carregarPlaylistsNaSidebar() {
       const li = document.createElement('li');
       li.innerHTML = `
         <a href="http://127.0.0.1:5500/playlist/Soundwave/index.html?id=${playlist.idPlaylist}" class="nav-item">
-          <img src="images/capa_mpb.png" alt="${playlist.nome}" class="nav-icon playlist-cover">
+          <img src="images/capa_funk.png" alt="${playlist.nome}" class="nav-icon playlist-cover">
           <span class="nav-text">${playlist.nome}</span>
         </a>
       `;
