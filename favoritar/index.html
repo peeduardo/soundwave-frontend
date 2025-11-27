@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Músicas Curtidas - Soundwave</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+
+<body>
+
+    <nav class="sidebar" id="sidebar">
+        <ul class="nav-list">
+            <li>
+                <a href="#" class="nav-item" id="toggle-menu">
+                    <img src="images/menu_menu.png" alt="Abrir Menu" class="nav-icon">
+                </a>
+            </li>
+        </ul>
+        <ul class="nav-list">
+            <li>
+                <a href="/login/cadastroUsuario/index.html" class="nav-item">
+                    <img src="images/menu_user.png" alt="Usuário" class="nav-icon">
+                    <span class="nav-text">Usuário</span>
+                </a>
+            </li>
+            <li>
+                <a href="/home/index.html" class="nav-item">
+                    <img src="images/menu_home.png" alt="Home" class="nav-icon">
+                    <span class="nav-text">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-item active"> 
+                    <img src="images/menu_favoritar.png" alt="Músicas Curtidas" class="nav-icon">
+                    <span class="nav-text">Músicas Curtidas</span>
+                </a>
+            </li>
+        </ul>
+        <div class="recent-playlists">
+            <h5 class="nav-title">Playlists recentes</h5>
+            <ul class="nav-list playlist-items" id="sidebar-playlists"></ul>
+        </div>
+    </nav>
+
+    <main class="content">
+        <a href="/home/index.html" class="logo-container">
+            <img src="images/logo_Soundwave.png" alt="Soundwave Logo" class="logo-sw">
+        </a>
+        
+        <div class="search-bar">
+            <img src="images/buscar_lupa.png" alt="Buscar" class="search-icon">
+            <input type="text" placeholder="Buscar nas curtidas...">
+        </div>
+
+        <section class="playlist-details">
+            <div class="cover-art">
+                <img src="images/menu_favoritar.png" style="background: #2F1043; padding: 20px;" alt="Capa Favoritos" id="playlist-cover">
+            </div>
+            <div class="info">
+                <h1>Playlist</h1>
+                <h2 id="playlist-name">Músicas Curtidas</h2>
+                <div class="actions">
+                    <button class="play-button" id="main-play-button">
+                        <img src="images/musica_despausar.png" alt="Tocar">
+                    </button>
+                </div>
+            </div> 
+        </section>
+
+        <section class="track-list" id="track-list-container">
+            <p style="color: #ccc; padding: 20px;">Carregando suas músicas favoritas...</p>
+        </section>
+        
+    </main>
+
+    <aside class="right-sidebar">
+        <div class="music-player-card">
+            <a href="/player-fullscreen/index.html">
+            <div class="player-header">
+                <img src="images/musica_capa.png" alt="Capa do Álbum" class="player-album-art">
+                <div class="player-info">
+                    <div class="player-info-header">
+                        <div>
+                            <div class="song-name">Música Selecionada</div>
+                            <div class="artist-name">Artista</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </a>
+            <div class="player-progress">
+                <span class="time-current">0:00</span>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" style="width: 0%;"></div>
+                </div>
+                <span class="time-total">0:00</span>
+                <img src="images/musica_favoritar.png" alt="Favoritar" class="player-heart-icon">
+            </div>
+            <div class="player-controls">
+                <img src="images/musica_voltar.png" alt="Voltar" class="control-icon">
+                <img src="images/musica_pausar.png" alt="Pausar" class="control-icon play-pause">
+                <img src="images/musica_avancar.png" alt="Avançar" class="control-icon">
+            </div>
+        </div>
+        <div class="queue-card">
+            <h4>Próximas da fila</h4>
+            <ul class="queue-list"></ul>
+        </div>
+    </aside>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
