@@ -1,14 +1,22 @@
-import { api } from "../api.js";
+import { api, decodeJWT } from "../api.js";
+const token = localStorage.getItem("token");
+console.log(token);
+
+const decode = decodeJWT(token); 
+
+console.log(decode);
+
+localStorage.setItem("id", decode.sub);
 
 /**
  * Função 1: Carrega as playlists do banco e exibe na grade da Home
  */
 async function carregarPlaylistsDaHome() {
-const container = document.getElementsByClassName("playlist-grid")[0];
+  const container = document.getElementsByClassName("playlist-grid")[0];
   if (!container) return;
 
   try {
-    const data = await api();
+    const data = await api(token);
     console.log(data);
 
     if (!data || data.length === 0) {
@@ -42,7 +50,14 @@ async function carregarPlaylistsNaSidebar() {
   if (!playlistContainer) return;
 
   try {
-    const response = await fetch('http://localhost:8080/playlists');
+    const response = await fetch('http://localhost:8080/playlists', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
     if (!response.ok) throw new Error('Falha ao carregar playlists');
     const playlists = await response.json();
 
@@ -80,6 +95,7 @@ async function criarPlaylistNoBackend(nome) {
     const response = await fetch('http://localhost:8080/playlists', {
       method: 'POST',
       headers: {
+        'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(playlistDTO)
