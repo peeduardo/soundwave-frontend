@@ -1,18 +1,28 @@
-import { loginUser } from './api.js'
+import { registerUser } from '../../api.js'
 
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('formLogin')
+    const form = document.getElementById('formCadastro')
+
+    const cpfInput = form.cpf
+    cpfInput.addEventListener('input', (e) => {
+        let v = e.target.value.replace(/\D/g, '')
+        if (v.length > 11) v = v.slice(0, 11)
+        v = v.replace(/(\d{3})(\d)/, '$1.$2')
+        v = v.replace(/(\d{3})(\d)/, '$1.$2')
+        v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2')
+        e.target.value = v
+    })
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault()
-
         const dados = {
+            name: form.name.value,
+            cpf: form.cpf.value,
             email: form.email.value,
             password: form.password.value
         }
 
-        const resposta = await loginUser(dados)
-
+        const resposta = await registerUser(dados)
         if (!resposta) {
             alert('Falha na conexão com o servidor.')
             return
@@ -20,14 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (resposta.ok) {
             const resultado = await resposta.json()
-            
-            // Salva o token JWT no localStorage
-            localStorage.setItem('token', resultado.token)
-
-            alert(`Login realizado com sucesso! Bem-vindo, ${resultado.name}`)
-            window.location.href = '../../home/index.html'
+            alert(`Usuário cadastrado com sucesso! Bem-vindo, ${resultado.name}`)
+            window.location.href = '../login/index.html'
         } else {
-            alert('Credenciais inválidas. Verifique e tente novamente.')
+            alert('Erro ao cadastrar. Verifique os dados e tente novamente.')
         }
     })
 
