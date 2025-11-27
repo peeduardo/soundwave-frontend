@@ -76,12 +76,35 @@ function renderPlaylistData(playlist) {
           </div>
         </div>
         <span class="track-duration">${formatDuration(musica.duracaoSegundos)}</span>
-        <i class="fas fa-heart track-like" title="Curtir"></i>
+        <i class="fas fa-heart track-like" onclick="salvarFavorito(${musica.idMusica})" title="Curtir"></i>
       `;
       trackContainer.appendChild(trackItem);
     });
   } else {
     trackContainer.innerHTML = '<p class="empty-playlist-message">Nenhuma música foi adicionada a esta playlist ainda.</p>';
+  }
+}
+
+async function salvarFavorito(musica) {
+  const dados = {
+    idMusica: musica,
+    idUsuario: 2
+  }
+  console.log(dados)
+  try {
+    const response = await fetch(`http://localhost:8080/favoritos/toggle?idUsuario=${2}&idMusica=${musica}`,  {
+      
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      // body: JSON.stringify(dados)
+    });
+    console.log(await response.json())
+    if (!response.ok) throw new Error('Falha ao favoritar');
+
+    alert("Músicas favoritada com sucesso!");
+  } catch (error) {
+    console.error("Erro ao favoritar músicas:", error);
+    alert("Houve um erro ao favoritar as músicas. Tente novamente.");
   }
 }
 
@@ -475,34 +498,34 @@ function padronizar(musicas) {
     if (!confirm("Deseja remover esta música da playlist?")) return;
 
     try {
-        const resp = await fetch(`http://localhost:8080/playlists/${idPlaylist}/musicas/${idMusica}`, {
-            method: "DELETE"
-        });
+      const resp = await fetch(`http://localhost:8080/playlists/${idPlaylist}/musicas/${idMusica}`, {
+        method: "DELETE"
+      });
 
-        if (!resp.ok) {
-            throw new Error("Erro ao remover música da playlist");
-        }
+      if (!resp.ok) {
+        throw new Error("Erro ao remover música da playlist");
+      }
 
-        alert("Música removida!");
-        location.reload();
+      alert("Música removida!");
+      location.reload();
 
     } catch (err) {
-        console.error(err);
-        alert("Erro ao remover música.");
+      console.error(err);
+      alert("Erro ao remover música.");
     }
-}
+  }
 
 }
 async function removerMusica(idPlaylist, idMusica) {
-    const resp = await fetch(`http://localhost:8080/playlist/${idPlaylist}/musicas/${idMusica}`, {
-        method: "DELETE"
-    });
+  const resp = await fetch(`http://localhost:8080/playlist/${idPlaylist}/musicas/${idMusica}`, {
+    method: "DELETE"
+  });
 
-    if (resp.ok) {
-        alert("Música removida!");
-        carregarMusicas();
-    } else {
-        alert("Erro ao remover a música da playlist");
-    }
+  if (resp.ok) {
+    alert("Música removida!");
+    carregarMusicas();
+  } else {
+    alert("Erro ao remover a música da playlist");
+  }
 }
 

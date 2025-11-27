@@ -1,4 +1,4 @@
-const ID_USUARIO_LOGADO = 1;
+const ID_USUARIO_LOGADO = 2;
 
 document.addEventListener('DOMContentLoaded', function () {
     carregarFavoritos();
@@ -34,7 +34,7 @@ async function carregarFavoritos() {
             let imagemBanco = musica.caminhoImagem || musica.caminho_imagem || musica.imagem;
             
             // Define a imagem padrão(mudar para imagem padrao))
-            let imgSrc = 'images/capa_mpb.png';
+            let imgSrc = 'images/capa_funk.png';
 
             if (imagemBanco) {
                 if (imagemBanco.startsWith('http') || imagemBanco.startsWith('data:')) {
@@ -44,7 +44,7 @@ async function carregarFavoritos() {
                 else if (!imagemBanco.includes('/')) {
                      // Se não tem upload de imagem real ainda, pode comentar a linha abaixo e deixar usar a padrão
                      // imgSrc = `http://localhost:8080/${imagemBanco}`; 
-                     imgSrc = 'images/capa_mpb.png'; 
+                     imgSrc = 'images/capa_funk.png'; 
                 }
                 else {
                     imgSrc = imagemBanco;
@@ -60,7 +60,7 @@ async function carregarFavoritos() {
             
             trackItem.innerHTML = `
                 <div class="track-info">
-                    <img src="${imgSrc}" alt="Capa" onerror="this.src='images/capa_mpb.png'">
+                    <img src="http://localhost:8080/${musica.caminho_imagem}" alt="Capa" onerror="this.src='images/capa_mpb.png'">
                     <div>
                         <span class="track-title" style="color: white; font-weight: 600;">${nomeMusica}</span>
                         <p class="track-artist">${nomeArtista}</p>
@@ -123,7 +123,7 @@ async function carregarPlaylistsNaSidebar() {
                 const li = document.createElement('li');
                 li.innerHTML = `
                     <a href="/playlist/Soundwave/index.html?id=${playlist.idPlaylist}" class="nav-item">
-                        <img src="images/capa_rock.png" class="nav-icon"> 
+                        <img src="images/capa_funk.png" class="nav-icon"> 
                         <span class="nav-text">${playlist.nome}</span>
                     </a>`;
                 playlistContainer.appendChild(li);
