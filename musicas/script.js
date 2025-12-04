@@ -2,7 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const lista = document.getElementById("lista-musicas");
 
     function carregarMusicas() {
-        fetch("http://localhost:8080/musicas")
+        fetch("http://localhost:8080/musicas", {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
             .then(res => res.json())
             .then(musicas => {
                 lista.innerHTML = "";
@@ -28,7 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function deletar(id) {
         fetch(`http://localhost:8080/musicas/delete/${id}`, {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
         })
             .then(res => {
                 if (!res.ok) throw new Error("Erro ao excluir");
