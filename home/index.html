@@ -42,6 +42,12 @@
                     <span class="nav-text">Músicas Curtidas</span>
                 </a>
             </li>
+            <li>
+                <a onclick="sair()" class="nav-item">
+                    <img src="images/sair.png" alt="Sair" class="nav-icon">
+                    <span class="nav-text">Sair</span>
+                </a>
+            </li>
         </ul>
 
         <div class="recent-playlists">
@@ -83,10 +89,16 @@
 
         <div class="search-bar">
             <img src="images/buscar_lupa.png" alt="Buscar" class="search-icon">
+<<<<<<< Updated upstream
             <input type="text" placeholder="O que você quer ouvir ?" id="search-bar">
         </div>
         
         <div id="resultadoBusca" class="resultado-busca"></div>
+=======
+             <input type="text" placeholder="O que você quer ouvir ?" id="search-bar">
+        </div>
+         <div id="resultadoBusca" class="resultado-busca"></div>
+>>>>>>> Stashed changes
 
         
         <div class="playlist-grid">
@@ -228,6 +240,13 @@
        
     <script type="module" src="script.js"></script>
        
+    <script>
+        function sair() {
+            localStorage.removeItem("token");
+            console.log("rodou")
+            window.location.href = "../login/login/index.html";
+        }
+    </script>
 </body>
 
 </html>

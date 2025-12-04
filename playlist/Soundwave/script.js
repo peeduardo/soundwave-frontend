@@ -2,7 +2,9 @@
  * playlist-page.js
  * Versão limpa e consolidada das funções da página de playlist.
  */
-
+const token = localStorage.getItem("token");
+console.log(token);
+const id = localStorage.getItem("id")
 /* ===================================================
    FUNÇÕES DE CARREGAMENTO DA PÁGINA
    =================================================== */
@@ -26,7 +28,14 @@ function getPlaylistIdFromUrl() {
  */
 async function fetchPlaylistData(id) {
   try {
-    const response = await fetch(`http://localhost:8080/playlists/${id}`);
+    const response = await fetch(`http://localhost:8080/playlists/${id}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
     if (!response.ok) {
       throw new Error(`Erro ${response.status}: Falha ao buscar dados da playlist.`);
     }
@@ -78,6 +87,34 @@ function renderPlaylistData(playlist) {
   }
 }
 
+<<<<<<< Updated upstream
+=======
+async function salvarFavorito(musica) {
+  const dados = {
+    idMusica: musica,
+    idUsuario: 2
+  }
+  console.log(dados)
+  try {
+    const response = await fetch(`http://localhost:8080/favoritos/toggle?idUsuario=${id}&idMusica=${musica}`, {
+
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json',
+         'Authorization': `Bearer ${token}`,
+       },
+      // body: JSON.stringify(dados)
+    });
+    console.log(await response.json())
+    if (!response.ok) throw new Error('Falha ao favoritar');
+
+    alert("Músicas favoritada com sucesso!");
+  } catch (error) {
+    console.error("Erro ao favoritar músicas:", error);
+    alert("Houve um erro ao favoritar as músicas. Tente novamente.");
+  }
+}
+
+>>>>>>> Stashed changes
 /**
  * Função 4: Busca as playlists para a sidebar (igual à da Home)
  */
@@ -86,7 +123,13 @@ async function carregarPlaylistsNaSidebar() {
   if (!playlistContainer) return;
 
   try {
-    const response = await fetch('http://localhost:8080/playlists');
+    const response = await fetch('http://localhost:8080/playlists', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
     if (!response.ok) throw new Error('Falha ao carregar playlists');
     const playlists = await response.json();
 
@@ -134,7 +177,15 @@ async function abrirModalParaAdicionarMusica() {
   modal.style.display = 'flex';
 
   try {
-    const response = await fetch('http://localhost:8080/musicas');
+    const response = await fetch('http://localhost:8080/musicas', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    //   const response = await fetch('http://localhost:8080/musicas');
     if (!response.ok) throw new Error('Falha ao buscar músicas');
     const musicas = await response.json();
 
@@ -188,7 +239,7 @@ async function salvarMusicasNaPlaylist() {
   try {
     const response = await fetch(`http://localhost:8080/playlists/atualizar/${idDaPlaylist}`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`, },
       body: JSON.stringify(idsDasMusicas)
     });
     if (!response.ok) throw new Error('Falha ao atualizar a playlist');
@@ -232,7 +283,7 @@ async function editarNomePlaylist(novoNome) {
   try {
     const response = await fetch(`http://localhost:8080/playlists/${idDaPlaylist}/editarNome`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`, },
       body: JSON.stringify({ nome: novoNome })
     });
     if (!response.ok) throw new Error('Falha ao editar o nome.');
@@ -254,7 +305,7 @@ async function excluirPlaylist() {
   if (!confirm(`Tem certeza que deseja excluir a playlist "${nomeDaPlaylist}"?`)) return;
 
   try {
-    const response = await fetch(`http://localhost:8080/playlists/${idDaPlaylist}`, { method: 'DELETE' });
+    const response = await fetch(`http://localhost:8080/playlists/${idDaPlaylist}`, { method: 'DELETE', headers: { 'Authorization': `Bearer ${token}` } });
     if (!response.ok) throw new Error('Falha ao excluir a playlist.');
 
     alert('Playlist excluída com sucesso.');
@@ -435,4 +486,73 @@ document.addEventListener('DOMContentLoaded', function () {
       modalEditar.classList.remove('show');
     }
   });
+<<<<<<< Updated upstream
 });
+=======
+});
+
+function navegarMusica(set) {
+
+  const dados = {
+    id: set.dataset.id,
+    musica: set.dataset.musica,
+    imagem: set.dataset.imagem,
+    nome: set.dataset.nome,
+    artista: set.dataset.artista
+  }
+  const padronizada = padronizar(data.musicas);
+
+
+  localStorage.setItem("ordem", JSON.stringify(padronizada))
+  console.log(padronizada)
+  localStorage.setItem("musica", JSON.stringify(dados))
+  window.open("http://127.0.0.1:5500/player-fullscreen/index.html", "_blank")
+}
+
+function padronizar(musicas) {
+  const baseUrl = "http://localhost:8080/";
+
+  return musicas.map(m => ({
+    ...m,
+    imagem: baseUrl + m.caminho_imagem,
+    musica: baseUrl + m.caminho_arquivo
+  }));
+  async function removerDaPlaylist(idPlaylist, idMusica) {
+    if (!confirm("Deseja remover esta música da playlist?")) return;
+
+    try {
+      const resp = await fetch(`http://localhost:8080/playlists/${idPlaylist}/musicas/${idMusica}`, {
+        method: "DELETE",
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+
+      if (!resp.ok) {
+        throw new Error("Erro ao remover música da playlist");
+      }
+
+      alert("Música removida!");
+      location.reload();
+
+    } catch (err) {
+      console.error(err);
+      alert("Erro ao remover música.");
+    }
+  }
+
+}
+async function removerMusica(idPlaylist, idMusica) {
+  const resp = await fetch(`http://localhost:8080/playlist/${idPlaylist}/musicas/${idMusica}`, {
+    method: "DELETE",
+    headers: { 'Authorization': `Bearer ${token}` }
+
+  });
+
+  if (resp.ok) {
+    alert("Música removida!");
+    carregarMusicas();
+  } else {
+    alert("Erro ao remover a música da playlist");
+  }
+}
+
+>>>>>>> Stashed changes
