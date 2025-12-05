@@ -19,7 +19,7 @@ function getPlaylistIdFromUrl() {
   if (!id) {
     console.error("Nenhum ID de playlist encontrado na URL.");
     alert("Erro: Playlist não especificada.");
-    window.location.href = "http://127.0.0.1:5500/home/index.html";
+    window.location.href = "http://127.0.0.1:5501/home/index.html";
   }
   return id;
 }
@@ -141,7 +141,7 @@ async function carregarPlaylistsNaSidebar() {
     playlists.forEach(playlist => {
       const li = document.createElement('li');
       li.innerHTML = `
-        <a href="http://127.0.0.1:5500/playlist/Soundwave/index.html?id=${playlist.idPlaylist}" class="nav-item">
+        <a href="http://127.0.0.1:5501/playlist/Soundwave/index.html?id=${playlist.idPlaylist}" class="nav-item">
           <img src="images/capa_funk.png" alt="${playlist.nome}" class="nav-icon playlist-cover">
           <span class="nav-text">${playlist.nome}</span>
         </a>
@@ -314,7 +314,7 @@ async function excluirPlaylist() {
     if (!response.ok) throw new Error('Falha ao excluir a playlist.');
 
     alert('Playlist excluída com sucesso.');
-    window.location.href = "http://127.0.0.1:5500/home/index.html";
+    window.location.href = "http://127.0.0.1:5501/home/index.html";
   } catch (error) {
     console.error("Erro ao excluir playlist:", error);
     alert(error.message);
@@ -508,7 +508,7 @@ function navegarMusica(set) {
   localStorage.setItem("ordem", JSON.stringify(padronizada))
   console.log(padronizada)
   localStorage.setItem("musica", JSON.stringify(dados))
-  window.open("http://127.0.0.1:5500/player-fullscreen/index.html", "_blank")
+  window.open("http://127.0.0.1:5501/player-fullscreen/index.html", "_blank")
 }
 
 function padronizar(musicas) {

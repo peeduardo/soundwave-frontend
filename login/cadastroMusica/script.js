@@ -54,7 +54,8 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault();
 
             const formData = new FormData(this);
-            // formData.append("idAlbum: ", 2);
+
+            formData.append("idAlbum", 1);
 
             // const backendUrl = '';
 

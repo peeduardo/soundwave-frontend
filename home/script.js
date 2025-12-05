@@ -27,7 +27,7 @@ async function carregarPlaylistsDaHome() {
     container.innerHTML = data
       .map(
         (playlist) => `
-          <a href="http://127.0.0.1:5500/playlist/Soundwave/index.html?id=${playlist.idPlaylist}">
+          <a href="http://127.0.0.1:5501/playlist/Soundwave/index.html?id=${playlist.idPlaylist}">
               <div class="card playlist-card">
                   <img src="images/capa_funk.png" alt="Capa da Playlist">
                   <div class="card-info">
@@ -65,7 +65,7 @@ async function carregarPlaylistsNaSidebar() {
     playlists.forEach(playlist => {
       const li = document.createElement('li');
       li.innerHTML = `
-        <a href="http://127.0.0.1:5500/playlist/Soundwave/index.html?id=${playlist.idPlaylist}" class="nav-item">
+        <a href="http://127.0.0.1:5501/playlist/Soundwave/index.html?id=${playlist.idPlaylist}" class="nav-item">
           <img src="images/capa_funk.png" alt="${playlist.nome}" class="nav-icon playlist-cover">
           <span class="nav-text">${playlist.nome}</span>
         </a>
